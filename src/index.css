@@ -1,0 +1,20 @@
+/* ./your-css-folder/styles.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.myyellow {
+    background-color: #FEBD69;
+}
+.myblue {
+    background-color: #232F3E;
+}
+.myblack{
+    background-color: #131A22;
+}
+.mygray{
+    background-color: #37475A;
+}
+body{
+    background-color: rgb(223, 223, 223);
+}
