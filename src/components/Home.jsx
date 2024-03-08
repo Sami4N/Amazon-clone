@@ -13,6 +13,13 @@ import phone from '../assets/phone.webp'
 import tab from '../assets/tab.jpg'
 import pc from '../assets/pc.webp'
 import tv from '../assets/tv.webp'
+import head from '../assets/manhead.jpg'
+import guitar from '../assets/guitar.jpg'
+import piano from '../assets/piano.jpg'
+import mic from '../assets/mic.jpg'
+import easter from '../assets/easter.jpg'
+import women from '../assets/women.jpg'
+import kids from '../assets/kids.jpg'
 
 
 const Home = () => {
@@ -23,22 +30,27 @@ const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const imageUrls = [
-    'url("src/assets/bg1.webp")',
-    'url("src/assets/bg4.webp")',
-    'url("src/assets/bg2.webp")',
+    'url("src/assets/bg12.jpg")',
+    'url("src/assets/bg11.jpg")',
+    'url("src/assets/bg10.jpg")',
+    'url("src/assets/bg9.jpg")',
+    'url("src/assets/bg8.jpg")',
+    'url("src/assets/bg7.jpg")',
+    'url("src/assets/bg6.jpg")',
+   
   ];
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % imageUrls.length);
-    }, 5000);
+    }, 8000);
 
     
     return () => clearInterval(intervalId);
   }, []);
 
   const backgroundImageStyle = {
-    backgroundImage: `linear-gradient(to bottom, transparent, rgb(223, 223, 223)), ${imageUrls[currentIndex]}`,
+    backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0) 25%, rgb(223, 223, 223)), ${imageUrls[currentIndex]}`,
     transition: 'background-image 0.5s ease-in-out'
   };
 
@@ -88,9 +100,8 @@ const Home = () => {
   }, []);
 
   return (
-<div className='w-full h-auto object-cover py-4 bg-center bg-cover' style={backgroundImageStyle}>
-    <h1 className='py-20 px-20 pb-40 sm:text-4xl text-2xl lg:text-5xl font-extrabold text-gray-800'>Fill your bascket with Joy</h1>
-    <div className='grid grid-cols-4 gap-5 p-6'>
+<div className='object-cover py-4 bg-no-repeat image' style={backgroundImageStyle}>
+    <div className='grid grid-cols-4 gap-5 p-6 pt-72'>
       <div className='bg-white rounded-sm h-[29rem]'>
         <h1 className='text-2xl font-bold p-6 pb-4'>Gaming accessories</h1>
         <div className='grid grid-cols-2 mb-3'>
@@ -162,14 +173,64 @@ const Home = () => {
         </div>
         <a className='text-sm px-6 text-blue-700 font-semibold hover:text-red-800' href="#">See more from Amazon Gadgets</a>
       </div>
-
     </div>
+
+
+    <div className='grid grid-cols-4 gap-5 p-6 pt-0'>
+      <div className='bg-white rounded-sm h-[29rem]'>
+        <h1 className='text-2xl font-bold p-6 pb-4'>Handpicked music & audio</h1>
+        <div className='grid grid-cols-2 gap-3 px-6'>
+          <div>
+            <img className='w-full h-[7rem]' src={head} alt="/" />
+            <p className='text-sm font-semibold'>Dining</p>
+          </div>
+          <div>
+            <img className='w-full h-[7rem]' src={guitar} alt="/" />
+            <p className='text-sm font-semibold'>Home</p>
+          </div>
+          <div className='my-4 mt-3'>
+            <img className='w-full h-[7rem]' src={piano} alt="/" />
+            <p className='text-sm font-semibold'>Kitchen</p>
+          </div>
+          <div className='my-4 mt-3'>
+            <img className='w-full h-[7rem]' src={mic} alt="/" />
+            <p className='text-sm font-semibold'>Health and Beauty</p>
+          </div> 
+        </div>
+        <a className='text-sm p-6 text-blue-700 font-semibold hover:text-red-800' href="#">See more</a>
+      </div>
+      <div className='bg-white rounded-sm h-[29rem]'>
+        <h1 className='text-2xl font-bold p-6 pb-4'>Fill your Easter basket with joy</h1>
+        <img className='px-6 pb-3 h-[19rem]' src={easter} alt="/" />
+        <a className='text-sm px-6 text-blue-700 font-semibold hover:text-red-800' href="#">Shop now</a>
+      </div>
+      <div className='bg-white rounded-sm h-[29rem]'>
+        <h1 className='text-2xl font-bold p-6 pb-4'>Celebrate the women in your life</h1>
+        <img className='px-6  pb-3 h-[19rem]' src={women} alt="/" />
+        <a className='text-sm px-6 text-blue-700 font-semibold hover:text-red-800' href="#">Shop now</a>
+      </div>
+      <div className='bg-white rounded-sm h-[29rem]'>
+        <h1 className='text-2xl font-bold p-6 pb-4'>Toys under $25</h1>
+        <img className='px-6  pb-3 h-[21rem]' src={kids} alt="/" />
+        <a className='text-sm px-6 text-blue-700 font-semibold hover:text-red-800' href="#">Shop now</a>
+      </div>
+    </div>
+    <div className=' bg-white m-6 p-6 mt-1 overflow-x-scroll'>
+        <h2 className='font-bold text-2xl'>Electronics</h2>
+        <div className='flex'>
+             {product4.map((product) => (
+            <img className='w-[20%] h-60 m-5 hover:scale-110 duration-500' key={product.id} src={product.image} alt={product.title} />
+             ))}
+        </div>
+        <a className='m-10 text-blue-600 hover:underline' href="#">See more</a>
+
+        </div>
     <div className='grid sm:grid-cols-2 gap-6'>
         <div className='bg-white rounded-lg md:ml-6'>
             <h1 className='font-bold text-2xl px-6 pt-3'>Men's Clothing</h1>
             <div className='grid grid-cols-4 sm:grid-cols-2 lg:grid-cols-4 m-6'>
                 {product3.map((product) => (
-                <img className='w-full h-full p-6' key={product.id} src={product.image} alt={product.title} />
+                <img className='w-full h-full p-6 hover:scale-150 duration-500' key={product.id} src={product.image} alt={product.title} />
                 ))}
             </div>
             <a className='m-10 text-blue-600 hover:underline' href="#">See more</a>
@@ -178,27 +239,18 @@ const Home = () => {
             <h1 className='font-bold text-2xl px-6 pt-3'>Jewelers</h1>
             <div className='grid grid-cols-4 sm:grid-cols-2 lg:grid-cols-4 m-6'>
                 {product2.map((product) => (
-                <img className='w-full h-full p-7' key={product.id} src={product.image} alt={product.title} />
+                <img className='w-full h-full p-7 hover:scale-150 duration-500' key={product.id} src={product.image} alt={product.title} />
                 ))}
             </div>
             <a className='m-10 text-blue-600 hover:underline' href="#">See more</a>
         </div> 
     </div> 
-    <div className=' bg-white m-6 p-6 overflow-x-scroll'>
-        <h2 className='font-bold text-2xl'>Electronics</h2>
-        <div className='flex'>
-             {product4.map((product) => (
-            <img className='w-[20%] h-60 m-5' key={product.id} src={product.image} alt={product.title} />
-             ))}
-        </div>
-        <a className='m-10 text-blue-600 hover:underline' href="#">See more</a>
-
-        </div> 
+     
         <div className=' bg-white m-6 p-6 overflow-x-scroll ove'>
             <h2 className='font-bold text-2xl'>Women's Clothing</h2>
             <div className='flex'>
                 {products.map((product) => (
-                <img className='w-[20%] h-60 m-9' key={product.id} src={product.image} alt={product.title} />
+                <img className='w-[20%] h-60 m-9 hover:scale-110 duration-500' key={product.id} src={product.image} alt={product.title} />
                 ))}
             </div>
         </div>

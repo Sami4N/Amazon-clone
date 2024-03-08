@@ -76,7 +76,7 @@ const Footer = () => {
                     <p className='mx-3 my-1'>Privacy Notice</p>
                     <p className='mx-3 my-1'>Your Ads Privacy Choices</p>
                 </div>
-                <p>© 1996-2024, Amazon.com, Inc. or its affiliates</p>
+                <p>© 1996-{new Date().getFullYear()}, Amazon.com, Inc. or its affiliates</p>
             </div>
         </div>
     </>
